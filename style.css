@@ -1,0 +1,555 @@
+/* --- Global Styles & CSS Variables --- */
+/* Define reusable values (colors, fonts, etc.) for consistency */
+:root {
+    /* Color Palette (Minimalist Black & White) */
+    --primary-black: #000000;
+    --primary-white: #FFFFFF;
+    --light-gray: #F2F2F2;    /* For backgrounds or subtle elements */
+    --medium-gray: #CCCCCC;   /* For borders or disabled states */
+    --text-color: var(--primary-black);
+    --background-color: var(--primary-white);
+    --border-color: var(--primary-black);
+
+    /* Button States */
+    --button-bg: var(--primary-white);
+    --button-text: var(--primary-black);
+    --button-border: var(--primary-black);
+    --button-hover-bg: var(--light-gray); /* Grey background on hover */
+    --button-hover-border: var(--medium-gray);
+    --button-selected-bg: var(--primary-black); /* Black background when selected */
+    --button-selected-text: var(--primary-white);
+    --button-selected-border: var(--primary-black);
+
+    /* Typography */
+    /* Use system fonts as a base, consider importing 'Inter' or 'Roboto' via <link> in HTML */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --base-font-size: 16px; /* Base size for rem units */
+    --line-height: 1.6;
+
+    /* Sizing & Spacing */
+    --border-radius: 6px; /* Rounded corners for buttons, inputs, etc. */
+    --spacing-unit: 1rem; /* Base spacing unit (adjust as needed) */
+
+    /* Transitions */
+    --transition-speed: 0.2s; /* For smooth hover effects */
+}
+
+/* --- Base HTML Element Styling --- */
+body {
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0; /* Remove default body margin */
+    padding: calc(var(--spacing-unit) * 1.5); /* Add some padding around the content */
+    line-height: var(--line-height);
+}
+
+h1, h2, h3 {
+    color: var(--primary-black);
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    margin-bottom: var(--spacing-unit);
+}
+
+h1 {
+    font-size: 2.2rem; /* Larger main title */
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8rem; /* Section titles */
+    text-align: center;
+    border-top: 1px solid var(--medium-gray); /* Separator line above H2s */
+    padding-top: var(--spacing-unit);
+    margin-top: calc(var(--spacing-unit) * 2);
+}
+
+h3 {
+    font-size: 1.2rem; /* Sub-section titles */
+}
+
+a {
+    color: var(--primary-black);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #555; /* Slightly darker grey on hover for links */
+}
+
+/* --- Header Styling --- */
+header {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    padding-bottom: var(--spacing-unit);
+    border-bottom: 1px solid var(--medium-gray); /* Separator line below header */
+}
+
+.motivational-quote {
+    font-style: italic;
+    color: #555; /* Muted color for the quote */
+    margin-top: calc(var(--spacing-unit) / 2);
+}
+
+
+/* --- Form Layout & Styling --- */
+#fitness-form {
+    max-width: 900px; /* Limit form width for readability */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: calc(var(--spacing-unit) * 1.5);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-white);
+}
+
+/* Container for the two main columns */
+.form-container {
+    display: flex; /* Use flexbox for column layout */
+    flex-wrap: wrap; /* Allow columns to stack on smaller screens */
+    gap: calc(var(--spacing-unit) * 1.5); /* Space between columns */
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+/* Style for each column */
+.form-column {
+    flex: 1; /* Allow columns to grow equally */
+    min-width: 250px; /* Minimum width before stacking */
+}
+
+/* Styling for individual form input groups (label + input) */
+.form-group {
+    margin-bottom: var(--spacing-unit);
+}
+
+.form-group label {
+    display: block; /* Make label take its own line */
+    margin-bottom: calc(var(--spacing-unit) / 3);
+    font-weight: bold;
+}
+
+/* Styling for select dropdowns */
+.form-group select {
+    width: 100%; /* Make select fill its container */
+    padding: calc(var(--spacing-unit) / 1.5);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    appearance: none; /* Remove default system appearance */
+    /* Custom dropdown arrow using SVG */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right calc(var(--spacing-unit) / 1.5) center;
+    background-size: 10px 10px;
+    cursor: pointer;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed); /* Smooth focus transition */
+}
+
+/* Focus style for select dropdowns */
+.form-group select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: var(--medium-gray);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Subtle focus indicator */
+}
+
+/* --- Focus Area Section Styling --- */
+.focus-area-section {
+    margin-top: calc(var(--spacing-unit) * 2);
+    padding-top: calc(var(--spacing-unit) * 1.5);
+    border-top: 1px solid var(--light-gray); /* Separator line */
+}
+
+/* Layout for rows of focus area dropdowns */
+.focus-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+    justify-content: space-between; /* Distribute items evenly */
+}
+
+/* Modifier to center the last row (Flexibility) */
+.focus-row-center {
+    justify-content: center;
+}
+
+/* Styling for each focus area group (label + select) */
+.focus-group {
+    flex: 1; /* Allow groups to grow */
+    min-width: 200px; /* Minimum width before wrapping */
+}
+
+.focus-group label {
+    display: block;
+    margin-bottom: calc(var(--spacing-unit) / 3);
+    font-weight: bold;
+}
+
+/* Inherit select styling from .form-group select */
+.focus-group select {
+    width: 100%;
+    padding: calc(var(--spacing-unit) / 1.5);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right calc(var(--spacing-unit) / 1.5) center;
+    background-size: 10px 10px;
+    cursor: pointer;
+}
+
+/* Styling for disabled focus area dropdowns (when another is selected) */
+.focus-group select:disabled {
+    background-color: var(--light-gray);
+    color: var(--medium-gray);
+    cursor: not-allowed;
+    border-color: var(--medium-gray);
+}
+
+/* --- Optional Components Section Styling --- */
+.optional-components {
+    margin-top: calc(var(--spacing-unit) * 2);
+    padding-top: calc(var(--spacing-unit) * 1.5);
+    border-top: 1px solid var(--light-gray); /* Separator line */
+    text-align: center; /* Center the button group */
+}
+
+/* Container for the optional component buttons */
+.button-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: center;
+    gap: var(--spacing-unit);
+    margin-top: var(--spacing-unit);
+}
+
+/* --- General Button Styling (Apply to all buttons) --- */
+.option-button, .generate-button, #print-btn, #regenerate-btn {
+    padding: calc(var(--spacing-unit) / 1.5) calc(var(--spacing-unit) * 1.5);
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1em; /* Use base font size */
+    text-align: center;
+    /* Smooth transitions for hover/selected states */
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+/* Hover state for all buttons */
+.option-button:hover, .generate-button:hover, #print-btn:hover, #regenerate-btn:hover {
+    background-color: var(--button-hover-bg); /* Light grey background */
+    border-color: var(--button-hover-border); /* Medium grey border */
+}
+
+/* Selected state specifically for optional component buttons */
+.option-button.selected {
+    background-color: var(--button-selected-bg); /* Black background */
+    color: var(--button-selected-text); /* White text */
+    border-color: var(--button-selected-border); /* Black border */
+}
+
+/* --- Generate Button Section Styling --- */
+.generate-section {
+    text-align: center;
+    margin-top: calc(var(--spacing-unit) * 2);
+    padding-top: calc(var(--spacing-unit) * 1.5);
+    border-top: 1px solid var(--light-gray); /* Separator line */
+}
+
+/* Specific styling for the main generate button */
+.generate-button {
+    font-weight: bold;
+    min-width: 150px; /* Make it slightly wider */
+    font-size: 1.1em; /* Make it slightly larger */
+}
+
+/* --- Loading State Styling --- */
+.loading-container {
+    display: flex; /* Use flex to center content vertically and horizontally */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Ensure it takes up some vertical space */
+    text-align: center;
+    margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.loading-animation {
+    margin-bottom: var(--spacing-unit);
+}
+
+/* The glowing ball element */
+.glowing-ball {
+    width: 50px;
+    height: 50px;
+    background-color: var(--medium-gray); /* Initial color */
+    border-radius: 50%; /* Make it circular */
+    /* Pulsing animation */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Keyframes for the pulsing animation */
+@keyframes pulse {
+    0%, 100% { /* Start and end state */
+        transform: scale(1);
+        box-shadow: 0 0 15px 5px var(--medium-gray); /* Normal glow */
+        background-color: var(--medium-gray);
+    }
+    50% { /* Mid-animation state */
+        transform: scale(1.1); /* Slightly larger */
+        box-shadow: 0 0 25px 10px var(--primary-white); /* Brighter white glow */
+        background-color: var(--primary-white);
+    }
+}
+
+/* Styling for the "Deep Senzu Thinking..." text */
+.loading-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-black);
+}
+
+/* --- Results Area Styling --- */
+#results-area {
+    margin-top: calc(var(--spacing-unit) * 2);
+    padding: calc(var(--spacing-unit) * 1.5);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    background-color: var(--light-gray); /* Slightly different background for contrast */
+}
+
+/* Styling for the main title within the results area */
+#results-area h2 {
+    border-top: none; /* Remove the top border inherited from general H2 style */
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 1.8rem; /* Ensure consistent size */
+    text-transform: uppercase; /* Ensure it's uppercase */
+}
+
+/* Containers for plan and supplement content */
+#plan-content, #supplement-recommendations {
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    padding: var(--spacing-unit);
+    background-color: var(--primary-white); /* White background for content blocks */
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+}
+
+/* Styling for DAY X headings and potentially other H3s in the plan */
+#plan-content h3 {
+    text-align: center; /* Keep centered as per original prompt */
+    text-transform: uppercase; /* Keep uppercase */
+    margin-top: 1.5em; /* Add some space above */
+    margin-bottom: 0.8em;
+    font-size: 1.5em; /* Increased font size */
+    font-weight: bold; /* Make it bold */
+    /* border-bottom: none; /* Optional: Remove border for cleaner look */
+}
+
+/* Styling for ## Section Headings within the plan (if generated) */
+#plan-content h4 { /* Assuming ## maps to h4 in JS formatter */
+     text-transform: uppercase;
+     margin-top: 1.5em;
+     margin-bottom: 0.5em;
+     font-weight: bold;
+     border-bottom: 1px solid var(--light-gray); /* Add a separator */
+     padding-bottom: 0.3em;
+}
+
+/* Styling for bold text within results */
+#plan-content strong, #supplement-recommendations strong {
+    font-weight: bold;
+}
+
+/* Styling for lists within results */
+#plan-content ul, #supplement-recommendations ul {
+    list-style: none; /* Remove default bullets if using custom ones */
+    padding-left: calc(var(--spacing-unit) * 1.5); /* Indentation for list items */
+    margin-top: calc(var(--spacing-unit) / 2);
+    margin-bottom: var(--spacing-unit);
+}
+
+/* Styling for individual list items */
+#plan-content li, #supplement-recommendations li {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    position: relative; /* Needed for custom bullet positioning */
+}
+
+/* Custom bullet point style (using ::before pseudo-element) */
+#plan-content ul li::before {
+    content: "•"; /* The bullet character */
+    color: var(--primary-black);
+    font-weight: bold;
+    display: inline-block;
+    position: absolute; /* Position relative to the li */
+    left: calc(-1 * var(--spacing-unit) * 1.5); /* Position it left of the text */
+    width: calc(var(--spacing-unit) * 1.5); /* Ensure space for the bullet */
+}
+
+
+/* --- Specific Formatting for Generated Output (Mirroring Prompt Requirements) --- */
+
+/* Main Heading (e.g., DAY 1) - Handled by #plan-content h3 */
+
+/* Section Heading (e.g., ## NUTRITION GUIDELINES) - Assuming maps to h4 */
+#plan-content .section-heading { /* Add this class in JS formatter if needed */
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--medium-gray);
+    font-weight: bold;
+}
+
+/* Subsection Heading (e.g., ### Exercise Name) - Handled by #plan-content h3 */
+#plan-content .subsection-heading { /* Add this class in JS formatter if needed */
+    text-align: left;
+    text-transform: none; /* Exercise names likely not uppercase */
+    font-size: 1.1em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+/* Styling for individual exercise blocks for visual separation */
+#plan-content .exercise-block { /* Add this class in JS formatter */
+    margin-bottom: 1.5em;
+    padding: var(--spacing-unit);
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    background-color: #fafafa; /* Slightly off-white background */
+}
+
+/* --- Supplement Block Styling --- */
+#supplement-recommendations .supplement-block { /* Add this class in JS formatter */
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--light-gray);
+}
+#supplement-recommendations .supplement-block:last-child {
+    border-bottom: none; /* Remove border from last item */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Styling for Supplement Product Names (H3) */
+#supplement-recommendations h3 {
+     text-align: left; /* Align product name left */
+     text-transform: none; /* Normal case for product name */
+     border-bottom: none;
+     margin-top: 0; /* Remove top margin */
+     margin-bottom: 0.3em;
+     font-size: 1.1em;
+     font-weight: bold; /* Make product name bold */
+}
+
+/* Styling for supplement details (assuming they are in paragraphs or lists) */
+#supplement-recommendations p, #supplement-recommendations li {
+    font-size: 0.95em; /* Slightly smaller text for details */
+    margin-bottom: 0.3em;
+}
+#supplement-recommendations ul {
+     padding-left: 0; /* No extra indent needed if not using bullets */
+     margin-top: 0.5em;
+}
+#supplement-recommendations ul li::before {
+    content: ""; /* Remove default bullet if not desired */
+}
+
+
+/* --- Action Buttons (Print/Regenerate) Styling --- */
+.action-buttons {
+    text-align: center;
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit); /* Space between buttons */
+}
+
+
+/* --- Footer Styling --- */
+footer {
+    margin-top: calc(var(--spacing-unit) * 3);
+    text-align: center;
+    padding-top: var(--spacing-unit);
+    border-top: 1px solid var(--medium-gray); /* Separator line above footer */
+}
+
+.disclaimer {
+    font-size: 0.8em; /* Smaller text for disclaimer */
+    color: #666; /* Muted color */
+}
+
+/* --- Responsive Design Adjustments --- */
+/* Styles for medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column; /* Stack form columns vertically */
+    }
+
+    .focus-row {
+        flex-direction: column; /* Stack focus groups vertically */
+        align-items: stretch; /* Make items take full width */
+    }
+
+    .focus-group {
+        min-width: 100%; /* Ensure focus groups take full width */
+    }
+
+    .button-group {
+        flex-direction: column; /* Stack optional buttons vertically */
+        align-items: center; /* Center stacked buttons */
+    }
+
+    .option-button {
+        width: 80%; /* Make buttons wider on smaller screens */
+        max-width: 300px; /* Limit max width */
+    }
+
+     .action-buttons {
+        flex-direction: column; /* Stack action buttons vertically */
+        align-items: center; /* Center stacked buttons */
+    }
+
+    #print-btn, #regenerate-btn {
+         width: 80%;
+         max-width: 300px;
+    }
+}
+
+/* Styles for small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-unit); /* Reduce body padding */
+    }
+
+    #fitness-form {
+        padding: var(--spacing-unit); /* Reduce form padding */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Slightly smaller H1 */
+    }
+    h2 {
+        font-size: 1.5rem; /* Slightly smaller H2 */
+    }
+    #results-area h2 {
+         font-size: 1.5rem;
+    }
+    #plan-content h3 {
+        font-size: 1.3em; /* Slightly smaller DAY headings */
+    }
+}
+
+/* --- Utility: Hide hidden inputs --- */
+input[type="hidden"] {
+    display: none;
+}

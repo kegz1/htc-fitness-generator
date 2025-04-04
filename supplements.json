@@ -1,0 +1,62 @@
+[
+  {
+    "category": "Protein Products",
+    "name": "Plant Protein - Vanilla",
+    "url": "https://htcsupplements.com/products/plant-protein-vanilla",
+    "description": "High-quality plant-based protein powder, vanilla flavor.",
+    "benefits_keywords": ["muscle recovery", "muscle growth", "plant-based", "protein intake"],
+    "goals": ["muscle_building", "toning", "overall_fitness", "weight_loss", "endurance"],
+    "timing": "Post-workout or anytime",
+    "dosage_note": "1-2 scoops based on protein needs"
+  },
+  {
+    "category": "Protein Products",
+    "name": "Whey Protein - Chocolate",
+    "url": "https://htcsupplements.com/products/whey-protein-chocolate",
+    "description": "Fast-absorbing whey protein isolate, chocolate flavor.",
+    "benefits_keywords": ["muscle recovery", "muscle growth", "whey protein", "protein intake", "fast absorption"],
+    "goals": ["muscle_building", "toning", "strength", "overall_fitness", "weight_loss"],
+    "timing": "Post-workout primarily",
+    "dosage_note": "1-2 scoops based on protein needs"
+  },
+  {
+    "category": "Pre-Workout Products",
+    "name": "Hyper Charge Pre-Workout",
+    "url": "https://htcsupplements.com/products/hyper-charge-pre-workout",
+    "description": "Energy and focus boosting pre-workout formula.",
+    "benefits_keywords": ["energy", "focus", "endurance", "performance", "pre-workout"],
+    "goals": ["strength", "endurance", "muscle_building", "overall_fitness"],
+    "timing": "15-30 minutes before workout",
+    "dosage_note": "1 scoop, assess tolerance"
+  },
+  {
+    "category": "Recovery Products",
+    "name": "BCAA Recovery Matrix",
+    "url": "https://htcsupplements.com/products/bcaa-recovery-matrix",
+    "description": "Branched-Chain Amino Acids to support muscle recovery.",
+    "benefits_keywords": ["recovery", "muscle soreness", "bcaa", "endurance"],
+    "goals": ["muscle_building", "endurance", "strength", "toning", "overall_fitness"],
+    "timing": "Intra-workout or Post-workout",
+    "dosage_note": "1 serving during/after training"
+  },
+  {
+    "category": "Health Supplements",
+    "name": "Omega-3 Fish Oil",
+    "url": "https://htcsupplements.com/products/omega-3-fish-oil",
+    "description": "Essential fatty acids for overall health.",
+    "benefits_keywords": ["joint health", "inflammation", "overall health", "omega-3"],
+    "goals": ["overall_fitness", "health", "endurance", "weight_loss"],
+    "timing": "With meals",
+    "dosage_note": "1-2 softgels daily"
+  },
+  {
+    "category": "Other Supplements",
+    "name": "Creatine Monohydrate",
+    "url": "https://htcsupplements.com/products/creatine-monohydrate",
+    "description": "Pure creatine monohydrate for strength and power.",
+    "benefits_keywords": ["strength", "power", "muscle growth", "performance", "atp"],
+    "goals": ["strength", "muscle_building", "power", "endurance"],
+    "timing": "Daily (timing less critical)",
+    "dosage_note": "3-5g daily"
+  }
+]

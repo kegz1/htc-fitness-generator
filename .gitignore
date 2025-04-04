@@ -1,0 +1,27 @@
+# Node.js dependencies
+# These are installed automatically using 'npm install' based on package.json
+# and don't need to be stored in version control.
+node_modules/
+
+# Environment Variables File
+# This file contains sensitive information like API keys and should NEVER be committed to Git.
+# Render.com and other hosting platforms have their own secure ways to manage these.
+.env
+
+# Log files
+# These are often generated during development or runtime and don't belong in version control.
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Operating system generated files
+# These are specific to certain operating systems and clutter the repository.
+.DS_Store
+Thumbs.db
+
+# Build output (if you were using a build process)
+# build/
+# dist/
